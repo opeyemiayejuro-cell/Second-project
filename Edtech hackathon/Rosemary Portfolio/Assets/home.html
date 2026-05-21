@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Web Developer Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <a href="#home">AYEJURO OPEYEMI</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="resume.pdf" target="_blank">Download CV</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-toggle">🌙</button>
+                <a href="#contact" class="btn-contact">Contact Me</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="greeting">HELLO, I AM</p>
+                <h1>AYEJURO <span class="accent">OPEYEMI</span></h1>
+                <h2><span id="typing"></span></h2>
+                <p class="description">
+                    I engineer intelligent, scalable AI-powered digital products.
+                    From seamless frontend systems to resilient backend architectures.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-glow">Let’s Connect</a>
+                    <a href="resume.pdf" class="btn-outline">View CV</a>
+                </div>
+            </div>
+
+            <!-- <div class="hero-image-scene">
+
+                <div class="image-flipper" id="flipper">
+                    <div class="image-front">
+                        <img src="IMG-20260221-WA0052.jpg" alt="Ayejuro Opeyemi">
+                    </div>
+                    <div class="image-back">
+                        <img src="Assets/your-logo.png" alt="Logo">
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                I'm a Frontend Web Developer focused on crafting high-performance, user-centered digital experiences.
+                I build responsive interfaces using modern technologies and best practices to deliver clean, scalable,
+                and seamless products.
+            </p>
+        </div>
+    </section>
+
+    <!-- TECH STACK SECTION -->
+    <section class="tech-stack">
+        <div class="container">
+            <h2 class="section-title">Tech Stack</h2>
+            <div class="tech-grid">
+                <main class="stack-grid">
+                    <section class="category">
+                        <h3>Languages</h3>
+                        <ul>
+                            <li><span class="tag">HTML5</span></li>
+                            <li><span class="tag">CSS3</span></li>
+                            <li><span class="tag">JavaScript (ES6+)</span></li>
+                        </ul>
+                    </section>
+
+                    <section class="category">
+                        <h3>Tools</h3>
+                        <ul>
+                            <li>Git</li>
+                            <li>GitHub</li>
+                            <li>VS Code</li>
+                        </ul>
+                    </section>
+
+                    <!-- PROJECTS SECTION -->
+                    <section class="projects section">
+                        <div class="container">
+                            <h2>My Projects</h2>
+                            <p class="section-tagline">
+                                Things I've built. Problems I've solved. Work I'm proud of.
+                            </p>
+                            <div class="project-grid">
+
+                                <div class="project-card">
+                                    <h3>Portfolio Website</h3>
+                                    <p>
+                                        A responsive, modern portfolio showcasing my skills, projects, and achievements
+                                        using HTML,CSS and
+                                        Javascript.
+                                    </p>
+                                </div>
+
+                                <div class="project-card">
+                                    <h3>MeroFitness Website</h3>
+                                    <p>
+                                        A fitness-focused website built with HTML,CSS and JavaScript that helps users
+                                        track workouts,
+                                        routines, and stay consistent with their health goals.
+                                    </p>
+                                </div>
+
+                                <div class="project-card">
+                                    <h3>EarthEcho</h3>
+                                    <p>
+                                        A fast, scalable online store built using Next.js and Tailwind CSS, integrating
+                                        modern frontend
+                                        techniques for optimal UX.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- EDUCATION SECTION -->
+                    <section class="education section">
+                        <div class="container">
+                            <h2>Education & Training</h2>
+                            <div class="education-grid">
+
+                                <div class="education-card">
+                                    <h3>Bachelor of Science in Computer Engineering</h3>
+                                    <p><strong>Lagos State University</strong></p>
+                                    <span>Nov 2026 - Jun 2029</span>
+                                </div>
+
+                                <div class="education-card">
+                                    <h3>Website Development Training</h3>
+                                    <p><strong>GESP Yabatech</strong></p>
+                                    <span>Sept 2025 - Dec 2025</span>
+                                </div>
+
+                                <div class="education-card">
+                                    <h3>Introduction to CyberSecurity</h3>
+                                    <p><strong>HP LIFE</strong></p>
+                                    <span>Dec 2025 - Jan 2025</span>
+                                </div>
+
+                                <div class="education-card">
+                                    <h3>Introduction to Front-End Development</h3>
+                                    <p><strong>Meta @ Cousera</strong></p>
+                                    <span>30 Oct 2025</span>
+                                    <a href="#" class="certificate-link">View Certificate</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CONTACT SECTION -->
+                    <section id="contact" class="contact section">
+                        <div class="container">
+                            <h2>Let’s Build Something Great</h2>
+                            <p>opeyemiayejuro@gmail.com</p>
+                        </div>
+                    </section>
+
+                    <!-- FOOTER -->
+                    <footer>
+                        <p>© 2026 Ayejuro Opeyemi. Built with precision.</p>
+                    </footer>
+
+                    <!-- SCRIPT -->
+                    <script>
+                        // TYPING ANIMATION
+                        const words = ["Frontend Web Developer", "Cybersecurity Enthusiast"];
+                        let i = 0, j = 0, current = "", deleting = false;
+
+                        function type() {
+                            current = words[i];
+                            document.getElementById("typing").textContent =
+                                deleting ? current.substring(0, j--) : current.substring(0, j++);
+
+                            if (!deleting && j === current.length + 1) {
+                                deleting = true;
+                                setTimeout(type, 1000);
+                                return;
+                            }
+                            if (deleting && j === 0) {
+                                deleting = false;
+                                i = (i + 1) % words.length;
+                            }
+                            setTimeout(type, deleting ? 50 : 100);
+                        }
+                        type();
+
+                        // COUNTER (Optional)
+                        const counters = document.querySelectorAll(".counter");
+
+                        counters.forEach(counter => {
+                            const update = () => {
+                                const target = +counter.getAttribute("data-target");
+                                const count = +counter.innerText;
+                                const inc = target / 100;
+
+                                if (count < target) {
+                                    counter.innerText = Math.ceil(count + inc);
+                                    setTimeout(update, 20);
+                                } else {
+                                    counter.innerText = target;
+                                }
+                            };
+                            update();
+                        });
+
+                        const flipper = document.getElementById('flipper');
+
+                        // 1. Toggle Flip on Click
+                        flipper.addEventListener('click', () => {
+                            flipper.classList.toggle('is-flipped');
+                        });
+
+                        // 2. Gentle "Move" effect on Mouse Move
+                        document.querySelector('.hero').addEventListener('mousemove', (e) => {
+                            if (!flipper.classList.contains('is-flipped')) {
+                                const x = (window.innerWidth / 2 - e.pageX) / 40;
+                                const y = (window.innerHeight / 2 - e.pageY) / 40;
+
+                                // Moves the image slightly towards the mouse
+                                flipper.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+                            }
+                        });
+
+                        // Reset position when mouse leaves
+                        document.querySelector('.hero').addEventListener('mouseleave', () => {
+                            if (!flipper.classList.contains('is-flipped')) {
+                                flipper.style.transform = `rotateY(0deg) rotateX(0deg)`;
+                            }
+                        });
+
+                        const observerOptions = {
+                            threshold: 0.2
+                        };
+
+                        const educationObserver = new IntersectionObserver((entries) => {
+                            entries.forEach((entry, index) => {
+                                if (entry.isIntersecting) {
+                                    // Add a staggered delay for each card
+                                    setTimeout(() => {
+                                        entry.target.style.opacity = "1";
+                                        entry.target.style.transform = "translateX(0)";
+                                    }, index * 150);
+                                }
+                            });
+                        }, observerOptions);
+
+                        // Set initial state for cards
+                        document.querySelectorAll('.education-card').forEach((card) => {
+                            card.style.opacity = "0";
+                            card.style.transform = "translateX(-50px)";
+                            card.style.transition = "all 0.6s ease-out";
+                            educationObserver.observe(card);
+                        });
+
+                        const cards = document.querySelectorAll('.tech-card');
+
+                        cards.forEach(card => {
+                            card.addEventListener('mousemove', (e) => {
+                                if (!card.classList.contains('flipped')) {
+                                    const rect = card.getBoundingClientRect();
+                                    const x = e.clientX - rect.left;
+                                    const y = e.clientY - rect.top;
+
+                                    const centerX = rect.width / 2;
+                                    const centerY = rect.height / 2;
+
+                                    const rotateX = (y - centerY) / 10;
+                                    const rotateY = (centerX - x) / 10;
+
+                                    card.querySelector('.tech-card-inner').style.transform =
+                                        `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                                }
+                            });
+
+                            card.addEventListener('mouseleave', () => {
+                                if (!card.classList.contains('flipped')) {
+                                    card.querySelector('.tech-card-inner').style.transform = `rotateX(0) rotateY(0)`;
+                                }
+                            });
+                        });
+                        const themeToggle = document.getElementById('theme-toggle');
+                        const body = document.body;
+
+                        // 1. Check for saved theme preference
+                        const currentTheme = localStorage.getItem('theme');
+                        if (currentTheme === 'light') {
+                            body.classList.add('light-mode');
+                            themeToggle.textContent = '☀️';
+                        }
+
+                        // 2. Toggle Theme Event
+                        themeToggle.addEventListener('click', () => {
+                            body.classList.toggle('light-mode');
+
+                            let theme = 'dark';
+                            if (body.classList.contains('light-mode')) {
+                                theme = 'light';
+                                themeToggle.textContent = '☀️';
+                            } else {
+                                themeToggle.textContent = '🌙';
+                            }
+
+                            localStorage.setItem('theme', theme);
+                        });
+
+                        // 3. Navbar background change on scroll
+                        window.addEventListener('scroll', () => {
+                            const navbar = document.querySelector('.navbar');
+                            if (window.scrollY > 50) {
+                                navbar.style.padding = '0.8rem 10%';
+                                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+                            } else {
+                                navbar.style.padding = '1.2rem 10%';
+                                navbar.style.background = 'rgba(15, 23, 42, 0.8)';
+                            }
+                        });
+                    </script>
+
+</body>
+
+</html>

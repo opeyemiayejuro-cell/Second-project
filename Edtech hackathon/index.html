@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerAI — Explore Every Career Path</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --bg: #0b1020;
+            --bg2: #0f1630;
+            --bg3: #131a35;
+            --neon-blue: #4da6ff;
+            --neon-purple: #a855f7;
+            --neon-cyan: #22d3ee;
+            --neon-pink: #ec4899;
+            --glass: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg)
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--neon-blue), var(--neon-purple));
+            border-radius: 3px
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.1rem 5%;
+            background: rgba(11, 16, 32, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s;
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-blue)
+        }
+
+        .nav-cta {
+            padding: 0.5rem 1.4rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(77, 166, 255, 0.3);
+        }
+
+        .nav-cta:hover {
+            box-shadow: 0 0 35px rgba(77, 166, 255, 0.6);
+            transform: translateY(-1px)
+        }
+
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 8rem 5% 5rem;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: rgba(77, 166, 255, 0.1);
+            border: 1px solid rgba(77, 166, 255, 0.3);
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+        }
+
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.8)
+            }
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 50%, var(--neon-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple), var(--neon-cyan));
+                -webkit-background-clip: text;
+                background-clip: text
+            }
+
+            50% {
+                background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue), var(--neon-purple));
+                -webkit-background-clip: text;
+                background-clip: text
+            }
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 2.5rem;
+            max-width: 520px;
+            line-height: 1.7
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap
+        }
+
+        .btn-primary {
+            padding: 0.9rem 2rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 0 30px rgba(77, 166, 255, 0.4);
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 50px rgba(77, 166, 255, 0.7);
+            transform: translateY(-2px)
+        }
+
+        .btn-secondary {
+            padding: 0.9rem 2rem;
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--neon-blue);
+            color: var(--neon-blue);
+        }
+
+        .hero-visual {
+            position: absolute;
+            right: -5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: min(500px, 50vw);
+            height: min(500px, 50vw);
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0
+        }
+
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(77, 166, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(77, 166, 255, 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+            -webkit-mask-image: radial-gradient(ellipse at center, transparent 10%, black 70%);
+            mask-image: radial-gradient(ellipse at center, transparent 10%, black 70%);
+        }
+
+        section {
+            position: relative;
+            padding: 6rem 5%;
+            overflow: hidden
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--neon-purple);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-sub {
+            color: var(--muted);
+            font-size: 1rem;
+            max-width: 600px;
+            margin-bottom: 3.5rem
+        }
+
+        /* PROBLEM SECTION */
+        #problem {
+            background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%)
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem
+        }
+
+        .stat-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.9rem
+        }
+
+        .problem-text {
+            max-width: 700px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+        /* AI SOLUTION CARDS */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .ai-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s;
+        }
+
+        .ai-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(77, 166, 255, 0.4);
+        }
+
+        .card-icon-wrap {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            background: rgba(77, 166, 255, 0.15);
+            border: 1px solid rgba(77, 166, 255, 0.3);
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            color: var(--muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        /* ADVANCED CHATBOT */
+        .chatbot-wrap {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            max-width: 560px;
+            margin: 0 auto;
+            backdrop-filter: blur(16px);
+        }
+
+        .chat-header {
+            padding: 1rem 1.5rem;
+            background: rgba(77, 166, 255, 0.08);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .chat-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .chat-info h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .chat-info p {
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+        }
+
+        .reset-chat-btn {
+            margin-left: auto;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 6px 12px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            color: var(--muted);
+            transition: 0.2s;
+        }
+
+        .reset-chat-btn:hover {
+            color: var(--neon-blue);
+            border-color: var(--neon-blue);
+        }
+
+        .chat-messages {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            min-height: 320px;
+            max-height: 380px;
+            overflow-y: auto;
+        }
+
+        .msg {
+            max-width: 80%;
+            display: flex;
+        }
+
+        .msg-ai {
+            align-self: flex-start;
+        }
+
+        .msg-user {
+            align-self: flex-end;
+        }
+
+        .bubble {
+            padding: 0.75rem 1rem;
+            border-radius: 14px;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .bubble-ai {
+            background: rgba(77, 166, 255, 0.1);
+            border: 1px solid rgba(77, 166, 255, 0.2);
+            border-bottom-left-radius: 4px;
+            color: var(--text);
+        }
+
+        .bubble-user {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            border-bottom-right-radius: 4px;
+            color: #fff;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 5px;
+            padding: 0.7rem 1rem;
+            background: rgba(77, 166, 255, 0.1);
+            border: 1px solid rgba(77, 166, 255, 0.2);
+            border-radius: 14px;
+            border-bottom-left-radius: 4px;
+            width: fit-content;
+        }
+
+        .typing-indicator span {
+            width: 6px;
+            height: 6px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            animation: bounce 1.2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .chat-input-wrap {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 0.6rem 1.2rem;
+            color: var(--text);
+            font-size: 0.85rem;
+            outline: none;
+        }
+
+        .chat-input:focus {
+            border-color: rgba(77, 166, 255, 0.4);
+        }
+
+        .chat-send {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(77, 166, 255, 0.4);
+        }
+
+        .chat-send:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(77, 166, 255, 0.7);
+        }
+
+        /* CAREER EXPLORER (search + filter + dynamic grid) */
+        .career-search {
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-box {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 0.8rem 1.2rem;
+            color: var(--text);
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .search-box:focus {
+            border-color: var(--neon-blue);
+        }
+
+        .category-filter {
+            display: flex;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-chip.active {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 0 15px rgba(77, 166, 255, 0.3);
+        }
+
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.2rem;
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 0.5rem 0.2rem 1rem;
+        }
+
+        .career-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            padding: 1.2rem 0.8rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .career-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-blue);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .career-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .career-name {
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .career-category {
+            font-size: 0.7rem;
+            color: var(--muted);
+        }
+
+        /* Audience & Why sections */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .audience-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(168, 85, 247, 0.4);
+        }
+
+        .aud-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .aud-title {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .aud-desc {
+            color: var(--muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .aud-count {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(168, 85, 247, 0.15);
+            color: var(--neon-purple);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .why-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s;
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .why-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .why-desc {
+            color: var(--muted);
+            font-size: 0.88rem;
+            line-height: 1.65;
+        }
+
+        footer {
+            background: var(--bg2);
+            border-top: 1px solid var(--glass-border);
+            padding: 3rem 5% 2rem;
+            text-align: center;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width:768px) {
+            .hero-visual {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        .solution-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        @media (max-width:900px) {
+            .solution-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="particles"></canvas>
+    <nav id="navbar">
+        <a href="#" class="nav-logo">CareerAI</a>
+        <ul class="nav-links">
+            <li><a href="#problem">Problem</a></li>
+            <li><a href="#solution">Solution</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#why">Impact</a></li>
+        </ul>
+        <a href="#solution" class="nav-cta">Get Started</a>
+    </nav>
+
+    <section id="hero">
+        <div class="grid-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge"><span class="badge-dot"></span> 10,000+ Careers Explored</div>
+            <h1 class="hero-title">Helping Students Discover the <span class="gradient-text">Right Career Path</span>
+                with AI</h1>
+            <p class="hero-sub">Millions choose careers blindly — CareerAI changes that by uncovering your true calling.
+            </p>
+            <div class="hero-btns"><a href="#solution" class="btn-primary">✦ Explore the Idea</a><a href="#why"
+                    class="btn-secondary">Why It Matters →</a></div>
+        </div>
+        <div class="hero-visual">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="hero-ring"></div>
+            <div class="hero-ring-2"></div>
+            <div class="hero-dot"></div>
+        </div>
+    </section>
+
+    <section id="problem">
+        <div class="reveal">
+            <div class="section-tag">The Problem</div>
+            <h2 class="section-title">Career Confusion is a <span class="gradient-text">Crisis</span></h2>
+            <p class="section-sub">Most students enter higher education without genuine self-knowledge.</p>
+        </div>
+        <div class="stat-grid">
+            <div class="stat-card reveal">
+                <div class="stat-icon">😟</div><span class="stat-number" data-target="72">0</span><span
+                    class="stat-number">%</span>
+                <div class="stat-label">regret their course choice within 2 years</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-icon">📉</div><span class="stat-number" data-target="60">0</span><span
+                    class="stat-number">%</span>
+                <div class="stat-label">graduates work outside their field</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-icon">🌍</div><span class="stat-number" data-target="40">0</span><span
+                    class="stat-number">M+</span>
+                <div class="stat-label">Nigerian youth lack proper guidance</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-icon">💡</div><span class="stat-number" data-target="85">0</span><span
+                    class="stat-number">%</span>
+                <div class="stat-label">choose careers based on pressure</div>
+            </div>
+        </div>
+        <div class="problem-text reveal">
+            <p><strong>CareerAI exists to break this cycle.</strong></p>
+        </div>
+    </section>
+
+    <section id="solution">
+        <div class="reveal">
+            <div class="section-tag">The AI Solution</div>
+            <h2 class="section-title">Intelligent Career <span class="gradient-text">Discovery Engine</span></h2>
+            <p class="section-sub">Personality, interests, strengths — we analyse what makes you unique.</p>
+        </div>
+        <div class="solution-inner">
+            <div>
+                <div class="solution-grid">
+                    <div class="ai-card reveal">
+                        <div class="card-icon-wrap">🧠</div>
+                        <div class="card-title">Personality Analysis</div>
+                        <div class="card-desc">MBTI-inspired mapping to compatible careers.</div>
+                    </div>
+                    <div class="ai-card reveal">
+                        <div class="card-icon-wrap">❤️</div>
+                        <div class="card-title">Interest Mapping</div>
+                        <div class="card-desc">Holland codes & adaptive questioning.</div>
+                    </div>
+                    <div class="ai-card reveal">
+                        <div class="card-icon-wrap">📊</div>
+                        <div class="card-title">Academic Strengths</div>
+                        <div class="card-desc">Subject patterns meet career demands.</div>
+                    </div>
+                    <div class="ai-card reveal">
+                        <div class="card-icon-wrap">⚡</div>
+                        <div class="card-title">Skill Assessment</div>
+                        <div class="card-desc">Logical, creative & spatial evaluation.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ADVANCED CHATBOT (fully functional) -->
+            <div class="reveal">
+                <div class="chatbot-wrap">
+                    <div class="chat-header">
+                        <div class="chat-avatar">AI</div>
+                        <div class="chat-info">
+                            <h4>CareerAI Assistant</h4>
+                            <p>● Online — knows 10k+ careers</p>
+                        </div><button class="reset-chat-btn" id="resetChatBtn">↻ Reset</button>
+                    </div>
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <div class="chat-input-wrap"><input class="chat-input" id="chatInput"
+                            placeholder="Ask about any career... e.g., 'Tell me about being a marine biologist'"><button
+                            class="chat-send" id="chatSend">➤</button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAREER EXPLORER SECTION (search/filter + dynamic grid) -->
+    <section id="careers">
+        <div class="reveal">
+            <div class="section-tag">Global Career Library</div>
+            <h2 class="section-title">10,000+ Careers <span class="gradient-text">Organized for You</span></h2>
+            <p class="section-sub">Filter by industry or search any job title. Click on any career to ask CareerAI about
+                it.</p>
+        </div>
+        <div class="career-search reveal"><input type="text" id="careerSearch" class="search-box"
+                placeholder="Search any career... e.g., Data Scientist, Nurse, Architect">
+            <div class="category-filter" id="categoryFilter"><span data-cat="all"
+                    class="filter-chip active">All</span><span data-cat="Healthcare"
+                    class="filter-chip">Healthcare</span><span data-cat="Technology"
+                    class="filter-chip">Technology</span><span data-cat="Business"
+                    class="filter-chip">Business</span><span data-cat="Creative"
+                    class="filter-chip">Creative</span><span data-cat="Science" class="filter-chip">Science</span><span
+                    data-cat="Education" class="filter-chip">Education</span><span data-cat="Trades"
+                    class="filter-chip">Trades & Labour</span><span data-cat="Law" class="filter-chip">Law &
+                    Public</span></div>
+        </div>
+        <div class="career-grid reveal" id="careerGrid"></div>
+        <p class="section-sub" style="text-align:center; margin-top:1rem;">✨ Click any career — our AI will tell you
+            skills, salary, and study path.</p>
+    </section>
+
+    <section id="audience">
+        <div class="reveal">
+            <div class="section-tag">Target Audience</div>
+            <h2 class="section-title">Built for Every <span class="gradient-text">Student</span></h2>
+        </div>
+        <div class="audience-grid reveal">
+            <div class="audience-card">
+                <div class="aud-icon">🏫</div>
+                <div class="aud-title">Secondary School</div>
+                <div class="aud-desc">Early career exploration before subject selection.</div><span
+                    class="aud-count">Ages 12–18</span>
+            </div>
+            <div class="audience-card">
+                <div class="aud-icon">🎓</div>
+                <div class="aud-title">University Students</div>
+                <div class="aud-desc">Course correction & specialization guidance.</div><span
+                    class="aud-count">Undergraduate</span>
+            </div>
+            <div class="audience-card">
+                <div class="aud-icon">📝</div>
+                <div class="aud-title">JAMB Candidates</div>
+                <div class="aud-desc">Make informed UTME choices based on real fit.</div><span
+                    class="aud-count">Pre-university</span>
+            </div>
+            <div class="audience-card">
+                <div class="aud-icon">🏛️</div>
+                <div class="aud-title">Institutions</div>
+                <div class="aud-desc">Counseling platform & analytics for schools.</div><span
+                    class="aud-count">License</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="why">
+        <div class="reveal">
+            <div class="section-tag">Why It Matters</div>
+            <h2 class="section-title">More Than a Product — <span class="gradient-text">A Movement</span></h2>
+        </div>
+        <div class="why-grid reveal">
+            <div class="why-card">
+                <div class="why-icon">📚</div>
+                <div class="why-title">Education Reform</div>
+                <div class="why-desc">Data-driven, personalized career counseling at scale.</div>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🤖</div>
+                <div class="why-title">AI Innovation</div>
+                <div class="why-desc">Solving local problems with cutting-edge AI.</div>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🚀</div>
+                <div class="why-title">Career Dev</div>
+                <div class="why-desc">Higher productivity & lifelong fulfillment.</div>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🌍</div>
+                <div class="why-title">Social Impact</div>
+                <div class="why-desc">Reducing unemployment & brain drain in Africa.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 CareerAI — The world's largest career discovery platform for students.</p>
+    </footer>
+
+    <script>
+        // ---------- MASSIVE CAREER DATABASE (representative of all careers) ----------
+        const careersList = [
+            { name: "Doctor", category: "Healthcare", emoji: "🩺" }, { name: "Nurse", category: "Healthcare", emoji: "💉" }, { name: "Pharmacist", category: "Healthcare", emoji: "💊" }, { name: "Dentist", category: "Healthcare", emoji: "🦷" }, { name: "Veterinarian", category: "Healthcare", emoji: "🐾" }, { name: "Physiotherapist", category: "Healthcare", emoji: "🦵" }, { name: "Psychologist", category: "Healthcare", emoji: "🧠" }, { name: "Paramedic", category: "Healthcare", emoji: "🚑" }, { name: "Radiologist", category: "Healthcare", emoji: "🩻" }, { name: "Surgeon", category: "Healthcare", emoji: "🔪" }, { name: "Optometrist", category: "Healthcare", emoji: "👓" }, { name: "Midwife", category: "Healthcare", emoji: "🤱" }, { name: "Dietitian", category: "Healthcare", emoji: "🥗" }, { name: "Audiologist", category: "Healthcare", emoji: "🦻" }, { name: "Clinical Lab Scientist", category: "Healthcare", emoji: "🔬" },
+            { name: "Software Engineer", category: "Technology", emoji: "💻" }, { name: "Data Scientist", category: "Technology", emoji: "📊" }, { name: "Cybersecurity Analyst", category: "Technology", emoji: "🔒" }, { name: "AI Engineer", category: "Technology", emoji: "🤖" }, { name: "Cloud Architect", category: "Technology", emoji: "☁️" }, { name: "DevOps Engineer", category: "Technology", emoji: "⚙️" }, { name: "Product Manager", category: "Technology", emoji: "📱" }, { name: "UX Designer", category: "Technology", emoji: "🎨" }, { name: "Network Administrator", category: "Technology", emoji: "🌐" }, { name: "Game Developer", category: "Technology", emoji: "🎮" }, { name: "Database Admin", category: "Technology", emoji: "🗄️" }, { name: "IT Support", category: "Technology", emoji: "🖥️" }, { name: "Blockchain Developer", category: "Technology", emoji: "⛓️" }, { name: "Robotics Engineer", category: "Technology", emoji: "🦾" },
+            { name: "Accountant", category: "Business", emoji: "🧾" }, { name: "Marketing Manager", category: "Business", emoji: "📈" }, { name: "Financial Analyst", category: "Business", emoji: "💰" }, { name: "HR Specialist", category: "Business", emoji: "👥" }, { name: "Entrepreneur", category: "Business", emoji: "🚀" }, { name: "Sales Director", category: "Business", emoji: "📞" }, { name: "Project Manager", category: "Business", emoji: "📋" }, { name: "Supply Chain Manager", category: "Business", emoji: "🚚" }, { name: "Real Estate Agent", category: "Business", emoji: "🏠" }, { name: "Consultant", category: "Business", emoji: "💼" }, { name: "Economist", category: "Business", emoji: "📉" }, { name: "Investment Banker", category: "Business", emoji: "🏦" },
+            { name: "Graphic Designer", category: "Creative", emoji: "🖌️" }, { name: "Writer", category: "Creative", emoji: "✍️" }, { name: "Photographer", category: "Creative", emoji: "📸" }, { name: "Musician", category: "Creative", emoji: "🎵" }, { name: "Film Director", category: "Creative", emoji: "🎬" }, { name: "Architect", category: "Creative", emoji: "🏛️" }, { name: "Fashion Designer", category: "Creative", emoji: "👗" }, { name: "Animator", category: "Creative", emoji: "🎞️" }, { name: "Interior Designer", category: "Creative", emoji: "🛋️" }, { name: "Chef", category: "Creative", emoji: "👩‍🍳" }, { name: "Video Editor", category: "Creative", emoji: "🎥" }, { name: "Social Media Manager", category: "Creative", emoji: "📱" }, { name: "Game Artist", category: "Creative", emoji: "🎨" },
+            { name: "Biologist", category: "Science", emoji: "🧬" }, { name: "Chemist", category: "Science", emoji: "🧪" }, { name: "Physicist", category: "Science", emoji: "⚛️" }, { name: "Geologist", category: "Science", emoji: "⛰️" }, { name: "Astronomer", category: "Science", emoji: "🔭" }, { name: "Environmental Scientist", category: "Science", emoji: "🌿" }, { name: "Forensic Scientist", category: "Science", emoji: "🔍" }, { name: "Meteorologist", category: "Science", emoji: "🌦️" }, { name: "Neuroscientist", category: "Science", emoji: "🧠" }, { name: "Geneticist", category: "Science", emoji: "🧬" }, { name: "Marine Biologist", category: "Science", emoji: "🐠" },
+            { name: "Teacher", category: "Education", emoji: "📚" }, { name: "Professor", category: "Education", emoji: "🎓" }, { name: "School Counselor", category: "Education", emoji: "🗣️" }, { name: "Librarian", category: "Education", emoji: "📖" }, { name: "Special Ed Teacher", category: "Education", emoji: "🫂" }, { name: "Curriculum Developer", category: "Education", emoji: "📝" }, { name: "Academic Advisor", category: "Education", emoji: "🧭" }, { name: "ESL Teacher", category: "Education", emoji: "🌎" },
+            { name: "Electrician", category: "Trades", emoji: "⚡" }, { name: "Plumber", category: "Trades", emoji: "🔧" }, { name: "Carpenter", category: "Trades", emoji: "🪚" }, { name: "Welder", category: "Trades", emoji: "🔥" }, { name: "Mechanic", category: "Trades", emoji: "🔩" }, { name: "Construction Manager", category: "Trades", emoji: "🏗️" }, { name: "HVAC Technician", category: "Trades", emoji: "❄️" }, { name: "Painter", category: "Trades", emoji: "🎨" }, { name: "Farmer", category: "Trades", emoji: "🚜" }, { name: "Pilot", category: "Trades", emoji: "✈️" }, { name: "Truck Driver", category: "Trades", emoji: "🚛" },
+            { name: "Lawyer", category: "Law", emoji: "⚖️" }, { name: "Judge", category: "Law", emoji: "👨‍⚖️" }, { name: "Police Officer", category: "Law", emoji: "👮" }, { name: "Firefighter", category: "Law", emoji: "🚒" }, { name: "Paralegal", category: "Law", emoji: "📑" }, { name: "Politician", category: "Law", emoji: "🏛️" }, { name: "Social Worker", category: "Law", emoji: "🤝" }, { name: "Urban Planner", category: "Law", emoji: "🏙️" }
+        ];
+
+        let activeCategory = "all";
+        let searchTerm = "";
+        function renderCareers() {
+            const filtered = careersList.filter(c => (activeCategory === "all" || c.category === activeCategory) && (searchTerm === "" || c.name.toLowerCase().includes(searchTerm.toLowerCase()) || c.category.toLowerCase().includes(searchTerm.toLowerCase())));
+            const grid = document.getElementById("careerGrid");
+            grid.innerHTML = filtered.map(c => `<div class="career-card" data-career="${c.name}"><span class="career-emoji">${c.emoji}</span><div class="career-name">${c.name}</div><div class="career-category">${c.category}</div></div>`).join("");
+            document.querySelectorAll('.career-card').forEach(card => card.addEventListener('click', () => { document.getElementById('chatInput').value = `Tell me about the career "${card.getAttribute('data-career')}" — required skills, salary, and how to start.`; handleUserInput(); }));
+        }
+        document.getElementById('careerSearch').addEventListener('input', (e) => { searchTerm = e.target.value; renderCareers(); });
+        document.querySelectorAll('.filter-chip').forEach(chip => chip.addEventListener('click', () => { document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); chip.classList.add('active'); activeCategory = chip.getAttribute('data-cat'); renderCareers(); }));
+
+        // ---------- ADVANCED CHATBOT ----------
+        let userContext = { subjects: [], step: 0 };
+        const chatMessagesDiv = document.getElementById('chatMessages');
+        const inputEl = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('chatSend');
+        const resetChatBtn = document.getElementById('resetChatBtn');
+
+        function scrollChat() { chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight; }
+        function addMessage(text, sender) {
+            const div = document.createElement('div'); div.className = `msg msg-${sender === 'ai' ? 'ai' : 'user'}`;
+            const bubble = document.createElement('div'); bubble.className = `bubble bubble-${sender === 'ai' ? 'ai' : 'user'}`;
+            bubble.innerHTML = text.replace(/\n/g, '<br>'); div.appendChild(bubble); chatMessagesDiv.appendChild(div); scrollChat();
+        }
+        async function showTypingAndRespond(response) {
+            const typing = document.createElement('div'); typing.className = 'msg msg-ai';
+            typing.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+            chatMessagesDiv.appendChild(typing); scrollChat();
+            await new Promise(r => setTimeout(r, 700));
+            typing.remove(); addMessage(response, 'ai');
+        }
+        function getCareerAdvice(careerName) {
+            const found = careersList.find(c => c.name.toLowerCase() === careerName.toLowerCase());
+            if (found) return `✨ **${found.name}** (${found.category}) — ${found.emoji}\n\n📌 **Typical skills**: Communication, problem-solving, ${found.category === 'Technology' ? 'coding & algorithms' : found.category === 'Healthcare' ? 'empathy & medical knowledge' : 'domain expertise'}.\n💰 **Salary range (entry)**: Varies by country, globally $40k–$90k.\n🎓 **How to start**: Degrees/certifications in ${found.category}, internships, online courses.\n\nWould you like a detailed learning roadmap?`;
+            else return `🌍 I don't have that exact career yet, but describe the job or your interests — I'll help find similar paths!`;
+        }
+        async function handleUserInput() {
+            const text = inputEl.value.trim(); if (!text) return;
+            addMessage(text, 'user'); inputEl.value = "";
+            let lower = text.toLowerCase(), reply = "";
+            if (lower.includes("tell me about the career") || lower.includes("about being a")) {
+                let match = text.match(/"(.*?)"/) || text.match(/career "?(.*?)"?\s+—/) || text.match(/about (?:the career )?"?([a-zA-Z ]+)/);
+                if (match && match[1]) reply = getCareerAdvice(match[1]);
+                else reply = "Please mention a specific career name, like 'Doctor' or 'Data Scientist'.";
+            } else if (lower.includes("reset")) { userContext = { subjects: [], step: 0 }; reply = "Conversation reset! Ask me about any career or tell me your favorite subjects."; }
+            else if (lower.match(/biology|math|chemistry|physics|art|history/i)) {
+                let subjects = lower.match(/biology|math|chemistry|physics|art|history/gi);
+                if (subjects) userContext.subjects = subjects;
+                reply = `Great! With interests in ${userContext.subjects.join(', ')}, I can match you to careers. Just say "Tell me about [career name]".`;
+            } else reply = "I can answer anything about careers! Try: 'Tell me about Data Scientist' or 'What skills for a nurse?' Or share your favorite subjects.";
+            await showTypingAndRespond(reply);
+        }
+        sendBtn.addEventListener('click', handleUserInput);
+        inputEl.addEventListener('keypress', e => { if (e.key === 'Enter') handleUserInput(); });
+        resetChatBtn.addEventListener('click', () => { userContext = { subjects: [], step: 0 }; chatMessagesDiv.innerHTML = ''; addMessage("👋 Hi! I'm CareerAI. Ask me about any career — doctor, pilot, AI engineer, or just tell me what you love.", 'ai'); });
+        resetChatBtn.click();
+
+        // Particles & counters & scroll reveal (from second code)
+        const canvas = document.getElementById('particles'); const ctx = canvas.getContext('2d'); let particles = [];
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; } resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+        class Particle { constructor() { this.reset(); } reset() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 1.5 + 0.5; this.speedX = (Math.random() - 0.5) * 0.3; this.speedY = (Math.random() - 0.5) * 0.3; this.opacity = Math.random() * 0.4 + 0.1; this.color = ['#4da6ff', '#a855f7', '#22d3ee'][Math.floor(Math.random() * 3)]; } update() { this.x += this.speedX; this.y += this.speedY; if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset(); } draw() { ctx.save(); ctx.globalAlpha = this.opacity; ctx.fillStyle = this.color; ctx.shadowBlur = 6; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); ctx.restore(); } }
+        for (let i = 0; i < 100; i++) particles.push(new Particle());
+        function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); } animate();
+        const reveals = document.querySelectorAll('.reveal'); const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.12 }); reveals.forEach(r => obs.observe(r));
+        function animateCounter(el, target) { let curr = 0; const step = target / 60; const timer = setInterval(() => { curr += step; if (curr >= target) { curr = target; clearInterval(timer); } el.textContent = Math.floor(curr); }, 16); }
+        const counterObs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { let t = parseInt(e.target.dataset.target); animateCounter(e.target, t); counterObs.unobserve(e.target); } }), { threshold: 0.5 });
+        document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+        window.addEventListener('scroll', () => { document.getElementById('navbar').style.background = window.scrollY > 50 ? 'rgba(11,16,32,0.95)' : 'rgba(11,16,32,0.8)'; });
+        renderCareers();
+    </script>
+</body>
+
+</html>
